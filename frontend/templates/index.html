@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electra Sense - Bill Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Electra Sense Logo" class="logo-img">
+            <span class="brand-name">Electra Sense</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Analysis</a>
+            <a href="#">Settings</a>
+        </nav>
+        <div class="search-icon">
+            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w.org/2000/svg">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Electricity Bill Prediction</h1>
+        <p class="subtitle">
+            Enter your electricity consumption data below to get an estimated bill amount. Our prediction model uses historical data and current usage patterns to provide an accurate forecast.
+        </p>
+
+        <form class="prediction-form" id="billForm">
+            <select class="form-select" id="tariffCategory" required>
+                <option value="" disabled selected>Select Tariff Category</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="industrial">Industrial</option>
+            </select>
+
+            <input class="form-input" type="number" id="sanctionedLoad" placeholder="Enter Sanctioned Load" required>
+
+            <input class="form-input" type="number" id="unitsConsumed" placeholder="Enter Units Consumed" required>
+            
+            <input class="form-input" type="number" step="0.01" id="energyCharge" placeholder="Enter Energy Charge" required>
+
+            <input class="form-input" type="number" step="0.01" id="fixedCharges" placeholder="Enter Fixed Charges" required>
+
+            <input class="form-input" type="number" step="0.01" id="electricityDuty" placeholder="Enter Electricity Duty" required>
+            
+            <button type="submit" class="predict-button">Predict Bill</button>
+        </form>
+
+        <section class="result-section" id="resultSection" style="display: none;">
+            <h2>Prediction Result</h2>
+            <p class="subtitle">Based on the provided data, your estimated electricity bill for the current billing cycle is:</p>
+            <p class="result-amount" id="resultAmount">₹125.50</p>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
