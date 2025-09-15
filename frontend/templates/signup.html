@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="relative min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 bg-gray-900 text-white antialiased">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0D1117] via-[#0D1117] to-[#13a4ec]/20 -z-10"></div>
+
+    <header class="absolute top-0 left-0 right-0 z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <a class="flex items-center gap-3" href="{{ url_for('signin') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Electra Sense Logo" class="logo-img h-10 w-10">
+                    <h1 class="text-2xl font-bold tracking-tight">Electra Sense</h1>
+                </a>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                        <a class="text-gray-300 hover:text-white transition-colors" href="#">Features</a>
+                        <a class="text-gray-300 hover:text-white transition-colors" href="#">Pricing</a>
+                        <a class="text-gray-300 hover:text-white transition-colors" href="#">Support</a>
+                    </nav>
+                    <a class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-gray-800 hover:bg-gray-700 text-white h-10 px-4 py-2" href="{{ url_for('signin') }}">
+                        Log In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-md">
+        <div class="bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-2xl shadow-sky-900/20 p-8 sm:p-10 space-y-6">
+            <div class="flex flex-col items-center text-center">
+                <div class="text-[var(--primary-color)] mb-4">
+                    <svg class="h-16 w-16" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.93,3.93a1,1,0,0,0-1.86,0L3.73,18.52a1,1,0,0,0,.93,1.48H20.27a1,1,0,0,0,.93-1.48Z"/></svg>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">Create your account</h2>
+                <p class="mt-2 text-sm text-gray-400">to start predicting your electricity bill</p>
+            </div>
+            
+            <form id="signup-form" class="space-y-6" action="{{ url_for('home') }}" method="GET" novalidate>
+                <div class="space-y-4">
+                    <div class="form-group">
+                        <label class="sr-only" for="email-address">Email address</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">mail</span>
+                            <input autocomplete="email" class="form-input block w-full rounded-lg border-gray-700 bg-gray-900/50 py-3 pl-11 pr-10 text-white placeholder:text-gray-500 focus:z-10" id="email-address" name="email" placeholder="Email address" required type="email" />
+                            <span class="material-symbols-outlined validation-icon valid text-green-500">check_circle</span>
+                            <span class="material-symbols-outlined validation-icon invalid text-red-500">error</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="password">Password</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">lock</span>
+                            <input autocomplete="new-password" class="form-input block w-full rounded-lg border-gray-700 bg-gray-900/50 py-3 pl-11 pr-10 text-white placeholder:text-gray-500 focus:z-10" id="password" name="password" placeholder="Password" required type="password" />
+                            <button class="password-toggle group" type="button"><span class="material-symbols-outlined">visibility</span></button>
+                            <span class="material-symbols-outlined validation-icon valid text-green-500">check_circle</span>
+                            <span class="material-symbols-outlined validation-icon invalid text-red-500">error</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="password-confirm">Confirm Password</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">lock_reset</span>
+                            <input autocomplete="new-password" class="form-input block w-full rounded-lg border-gray-700 bg-gray-900/50 py-3 pl-11 pr-10 text-white placeholder:text-gray-500 focus:z-10" id="password-confirm" name="password-confirm" placeholder="Confirm Password" required type="password" />
+                            <button class="password-toggle group" type="button"><span class="material-symbols-outlined">visibility</span></button>
+                            <span class="material-symbols-outlined validation-icon valid text-green-500">check_circle</span>
+                            <span class="material-symbols-outlined validation-icon invalid text-red-500">error</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="group relative flex w-full justify-center rounded-md border border-transparent bg-gradient-to-r from-[var(--primary-color)] to-sky-600 py-3 px-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/20" type="submit">
+                        Create Account
+                    </button>
+                </div>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-400">
+                Already have an account?
+                <a class="font-medium text-[var(--primary-color)] hover:text-sky-400 transition-colors" href="{{ url_for('signin') }}">
+                    Log in
+                </a>
+            </p>
+        </div>
+    </main>
+</div>
+{% endblock %}

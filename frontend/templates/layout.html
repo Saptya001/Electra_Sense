@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" />
+    
+    <!-- The title will be set by each individual page that uses this template -->
+    <title>Electra Sense - {% block title %}{% endblock %}</title>
+    
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-[#0d1117] text-white" style='font-family: Inter, "Noto Sans", sans-serif;'>
+
+    <!-- This block is a placeholder. The content of your other pages (signin.html, etc.) will be injected here. -->
+    {% block content %}{% endblock %}
+
+    <!-- The script is loaded at the end for better performance -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
